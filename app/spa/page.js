@@ -4,12 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/app/just_logo.png';
 import productMain from '@/assets/product_des.jpg';
-import heartImg from '@/assets/1.png';
-import reliefImg from '@/assets/2.png';
-import bloatingImg from '@/assets/3.png';
-import facialImg from '@/assets/face/4.png';
-import fiveImg from '@/assets/face/5.jpg';
-import sixImg from '@/assets/face/6.jpg';
+import heartImg from '@/assets/1.jpg';
+import reliefImg from '@/assets/2.jpg';
+import bloatingImg from '@/assets/3.jpg';
+import facialImg from '@/assets/face/four.png';
+import fiveImg from '@/assets/face/five.jpg';
+import sixImg from '@/assets/face/six.jpg';
 import coupleImg from '@/assets/test/1920x1281.jpg';
 import ReviewSection from '@/components/elements/ReviewSection';
 import { useRouter } from 'next/navigation';
@@ -51,8 +51,7 @@ export default function SpaPage() {
     
     return () => clearInterval(intervalId); // Cleanup on unmount
   }, []);
-  
-  // Auto-play sound and handle audio setup
+    // Auto-play sound and detect mobile for auto-call
   useEffect(() => {
     // Setup the audio when the component mounts
     if (audioRef.current) {
@@ -72,9 +71,23 @@ export default function SpaPage() {
           })
           .catch(error => {
             console.log("Autoplay was prevented. User interaction is required to play audio.");
-            // We'll enable manual sound toggle through user interaction
           });
       }
+    }
+    
+    // Check if it's a mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      typeof window !== 'undefined' ? window.navigator.userAgent : ''
+    );
+    
+    // Auto-call for mobile devices
+    if (isMobile) {
+      // Short delay to allow the page to load first
+      const autoCallTimeout = setTimeout(() => {
+        window.location.href = 'tel:+918888888888';
+      }, 1500); // 1.5 second delay
+      
+      return () => clearTimeout(autoCallTimeout);
     }
     
     // Cleanup when component unmounts
@@ -199,7 +212,7 @@ export default function SpaPage() {
                   <div className="absolute -top-4 -right-4 bg-rose-500 text-white text-xs font-bold px-3 py-2 rounded-full shadow-md transform rotate-12 z-10">
                     BEST SELLER
                   </div>
-                  <div className="relative h-80 w-full overflow-hidden rounded-lg">
+                  <div className="relative h-96 w-full overflow-hidden rounded-lg">
                     {/* Auto sliding image carousel */}
                     {productImages.map((image, index) => (
                       <Image
@@ -207,7 +220,7 @@ export default function SpaPage() {
                         src={image}
                         alt={`Luxury Spa Treatment ${index + 1}`}
                         fill
-                        className={`object-cover transition-opacity duration-1000 rounded-lg ${
+                        className={` transition-opacity duration-1000 rounded-lg ${
                           index === activeImageIndex ? 'opacity-100' : 'opacity-0 absolute'
                         }`}
                         priority={index === 0}
