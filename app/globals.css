@@ -1,0 +1,551 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Raleway", serif;  
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  overflow-y: auto !important;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* FragmentationImage.module.css */
+.fragmentationImage {
+  -webkit-mask: paint(fragmentation);
+  mask: paint(fragmentation);
+  --f-o: 1;
+  transition: --f-o 1s ease;
+}
+
+.fragmentationImage:hover {
+  --f-o: 0;
+}
+
+/* Note: This needs to be in a global CSS file (e.g., globals.css) */
+@property --f-o {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 1;
+}
+
+/* Locomotive Scroll styles */  
+html.has-scroll-smooth {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+html.has-scroll-dragging {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+[data-scroll-container] {
+  min-height: 100vh;
+  height: 100%;
+  overflow-x: hidden !important;
+  overflow: hidden auto;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1px;
+  will-change: transform;
+  overscroll-behavior: none; /* Prevent bounce effect */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+  scroll-snap-type: y proximity;
+}
+
+/* Add smooth scrolling fallback */
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Swiper custom styles */
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  filter: blur(4px);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.swiper-slide-active {
+  filter: blur(0);
+}
+
+.swiper-slide:hover .absolute {
+  opacity: 1;
+}
+
+.swiper-pagination-bullet {
+  background: #2A6177 !important;
+}
+/* Logo rotation animation */
+.logo-container {
+  animation: slide 20s linear infinite;
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Add these new styles */
+.infinite-scroll:hover .logo-container {
+  animation-play-state: paused;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 4rem; /* Consistent gap between logos */
+  padding-right: 4rem; /* Space between sets */
+  flex-shrink: 0; /* Prevent logo compression */
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* Only move by half to create seamless loop */
+  }
+}
+
+.infinite-scroll {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Remove any potential interference with main layout */
+.infinite-scroll * {
+  box-sizing: border-box;
+}
+
+/* Navigation transition animations */
+.nav-expand {
+    position: relative;
+    z-index: 51;
+}
+
+.nav-overlay {
+    clip-path: inset(0 100% 0 0);
+    animation: slideRight 1s ease-out forwards;
+}
+
+@keyframes slideRight {
+    0% {
+        clip-path: inset(0 100% 0 0);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* Navigation styles */
+.nav-active {
+    opacity: 0.8;
+    position: relative;
+}
+
+.nav-active::after {
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Hide scrollbar but keep functionality */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Enable smooth scrolling */
+html {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Fix animation performance */
+.logo-container, 
+.swiper-slide, 
+[data-scroll-container] {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Improve animation smoothness */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent horizontal overflow */
+.overflow-x-hidden {
+  overflow-x: hidden !important;
+  width: 100%;
+}
+
+/* Smooth transition for all animations */
+.transition-all {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Add these fixes */
+.page-transition {
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+}
+
+/* Fix main content layout */
+main {
+  min-height: 100vh;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fix last section */
+main > div:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  flex-shrink: 0;
+}
+
+/* Ensure sections stack properly */
+main > div {
+  width: 100%;
+  position: relative;
+}
+
+/* Remove any extra space */
+main > div:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Phone number specific style */
+.phone-number {
+  font-family: Arial, sans-serif;
+}
+
+/* Video player styles */
+.group:hover .cursor-default {
+  cursor: pointer;
+}
+
+.group button svg {
+  transition: transform 0.2s ease;
+}
+
+.group button:hover svg {
+  transform: scale(1.2);
+}
+
+/* Add gradient overlay for better button visibility */
+.group::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.group:hover::after {
+  opacity: 1;
+}
+
+/* Hero section responsive styles */
+.hero-section {
+  height: 250px;
+  min-height: 250px;
+}
+
+/* Tablet and small desktop */
+@media (min-width: 480px) {
+  .hero-section {
+    height: 400px;
+    min-height: 400px;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1400px) {
+  .hero-section {
+    height: 500px;
+    min-height: 500px;
+  }
+}
+
+/* Hero image styles */
+.hero-section picture img {
+  transition: transform 0.5s ease-out;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Optional: Subtle zoom effect on hover for desktop */
+@media (min-width: 1024px) {
+  .hero-section:hover picture img {
+    transform: scale(1.02);
+  }
+}
+
+/* Hero section responsive styles */
+.hero-wrapper {
+  width: 100%;
+}
+
+.hero-content {
+  min-height: 250px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile dimensions */
+@media (max-width: 480px) {
+  .hero-wrapper {
+    height: 250px;
+  }
+  .hero-content {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Tablet dimensions */
+@media (min-width: 481px) and (max-width: 1399px) {
+  .hero-wrapper {
+    height: 400px;
+  }
+  .hero-content {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+/* Desktop dimensions */
+@media (min-width: 1400px) {
+  .hero-wrapper {
+    height: 500px;
+  }
+  .hero-content {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Ensure content stays visible */
+.hero-wrapper picture img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Optional: Add smooth transitions */
+.hero-wrapper * {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Digestive Health Section styles */
+.digestive-section-card {
+  transition: all 0.3s ease-in-out;
+}
+
+.digestive-section-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Gradient animation for borders */
+@keyframes borderGradient {
+  0% { border-image-source: linear-gradient(45deg, #2A6177, #43c3ff); }
+  50% { border-image-source: linear-gradient(45deg, #43c3ff, #2A6177); }
+  100% { border-image-source: linear-gradient(45deg, #2A6177, #43c3ff); }
+}
+
+/* Digestive System Section */
+.digestive-marker {
+  @apply transition-all duration-300 ease-out;
+}
+
+.digestive-marker:hover {
+  @apply scale-150;
+}
+
+.digestive-line {
+  @apply transition-all duration-300 ease-out;
+}
+
+.digestive-info {
+  @apply transition-all duration-300 ease-out;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide {
+  animation: slide 30s linear infinite;
+  display: flex;
+  width: fit-content;
+}
+
+.animate-slide:hover {
+  animation-play-state: paused;
+}

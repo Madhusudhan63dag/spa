@@ -1,0 +1,11 @@
+# Robots.txt file for Sampoorn Arogya
+User-agent: *
+Allow: /
+
+# Block access to admin areas
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /wp-login/
+
+# Sitemap location
+Sitemap: http://sampoornarogya.com/sitemap.xml
