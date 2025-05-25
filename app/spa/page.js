@@ -4,12 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import logo from '@/app/just_logo.png';
 import productMain from '@/assets/product_des.jpg';
-import heartImg from '@/assets/heart.png';
-import reliefImg from '@/assets/relief.png';
-import bloatingImg from '@/assets/bloating.png';
-import facialImg from '@/assets/face/three.png';
-import fiveImg from '@/assets/face/five.jpg';
-import sixImg from '@/assets/face/six.jpg';
+import heartImg from '@/assets/1.png';
+import reliefImg from '@/assets/2.png';
+import bloatingImg from '@/assets/3.png';
+import facialImg from '@/assets/face/4.png';
+import fiveImg from '@/assets/face/5.jpg';
+import sixImg from '@/assets/face/6.jpg';
 import coupleImg from '@/assets/test/1920x1281.jpg';
 import ReviewSection from '@/components/elements/ReviewSection';
 import { useRouter } from 'next/navigation';
@@ -297,12 +297,12 @@ export default function SpaPage() {
                     In stock
                   </span>
                 </div>
-                
+{/*                 
                 <div className="mb-4">
                   <span className="text-3xl font-bold text-indigo-600">₹7,999</span>
                   <span className="text-gray-500 text-lg line-through ml-2">₹10,500</span>
                   <span className="bg-indigo-100 text-indigo-800 text-sm font-semibold px-2.5 py-0.5 rounded-md ml-2">25% OFF</span>
-                </div>
+                </div> */}
                 
                 <div className="mb-4 pb-4 border-b border-gray-200">
                   <p className="text-gray-700">
