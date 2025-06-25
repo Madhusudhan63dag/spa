@@ -8,7 +8,7 @@
   "/private/page": "app/private/page.js",
   "/product/page": "app/product/page.js",
   "/return/page": "app/return/page.js",
+  "/sampurna/page": "app/sampurna/page.js",
   "/shipping/page": "app/shipping/page.js",
-  "/term/page": "app/term/page.js",
-  "/spa/page": "app/spa/page.js"
+  "/term/page": "app/term/page.js"
 }

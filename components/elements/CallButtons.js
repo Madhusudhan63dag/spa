@@ -3,11 +3,11 @@ import { Phone, MessageCircle } from 'lucide-react';
 
 export default function CallButtons() {
   const handleCall = () => {
-    window.location.href = 'tel:+919030528333';
+    window.location.href = 'tel:+919030514333';
   };
 
   const handleWhatsApp = () => {
-    window.location.href = 'https://wa.me/919030528333';
+    window.location.href = 'https://wa.me/919030514333';
   };
 
   return (
@@ -23,7 +23,7 @@ export default function CallButtons() {
           <Phone className="w-5 h-5" />
           <span className="text-sm font-medium">Call Now</span>
         </button>
-        <button
+        {/* <button
           onClick={handleWhatsApp}
           className="flex-1 bg-green-600 text-white py-2 px-4 rounded-full 
                    flex items-center justify-center space-x-2 shadow-md
@@ -31,12 +31,12 @@ export default function CallButtons() {
         >
           <MessageCircle className="w-5 h-5" />
           <span className="text-sm font-medium">WhatsApp</span>
-        </button>
+        </button> */}
       </div>
 
       {/* Desktop Floating Buttons */}
       <div className="fixed bottom-6 right-6 z-[9999] hidden md:flex flex-col gap-4">
-        <button
+        {/* <button
           onClick={handleWhatsApp}
           className="bg-green-600 hover:bg-green-700 
                    text-white rounded-full p-4 shadow-lg transform hover:scale-110 
@@ -45,8 +45,8 @@ export default function CallButtons() {
           aria-label="WhatsApp us"
         >
           <MessageCircle className="w-6 h-6 group-hover:animate-wiggle" />
-        </button>
-        <button
+        </button> */}
+        {/* <button
           onClick={handleCall}
           className="bg-green-500 hover:bg-green-600 
                    text-white rounded-full p-4 shadow-lg transform hover:scale-110 
@@ -55,7 +55,7 @@ export default function CallButtons() {
           aria-label="Call us"
         >
           <Phone className="w-6 h-6 group-hover:animate-wiggle" />
-        </button>
+        </button> */}
       </div>
     </>
   );

@@ -2,7 +2,12 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import logo from '@/app/just_logo.png';
-import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react'; // Add this import
+import visa from '@/assets/visa.svg';
+import mastercard from '@/assets/mastercard.svg';
+import paypal from '@/assets/paypal.svg';
+import discover from '@/assets/discover.svg';
+import { Facebook, Instagram, Youtube, CreditCard } from 'lucide-react';
+import { FaAmazonPay } from 'react-icons/fa';
 
 export default function Footer() {
     const router = useRouter();
@@ -46,7 +51,7 @@ export default function Footer() {
                                 <Instagram className="w-5 h-5" />
                             </a>
                             <a
-                                href="https://youtube.com"
+                                href="https://www.youtube.com/@SampoornArogya"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-gray-600 hover:text-[#43c3ff] transition-colors duration-200"
@@ -110,6 +115,36 @@ export default function Footer() {
                                 </li>
                             ))}
                         </ul>
+                    </div>
+                </div>
+
+                {/* Payment Methods Section */}
+                <div className="border-t mt-6 md:mt-8 pt-4 md:pt-6">
+                    <div className="text-center mb-4">
+                        <h4 className="text-sm font-semibold text-gray-800 mb-3">We Accept</h4>
+                        <div className="flex justify-center items-center gap-4 flex-wrap">
+                            {/* Credit Card Icons */}
+                            <div className="flex items-center gap-2 bg-white rounded-lg p-2 shadow-sm border">
+                                <Image src={visa} alt="Visa" width={40} height={24} className="h-6 w-auto" />
+                            </div>
+                            <div className="flex items-center gap-2 bg-white rounded-lg p-2 shadow-sm border">
+                                <Image src={mastercard} alt="Mastercard" width={40} height={24} className="h-6 w-auto" />
+                            </div>
+                            <div className="flex items-center gap-2 bg-white rounded-lg p-2 shadow-sm border">
+                                <Image src={discover} alt="Discover" width={40} height={24} className="h-6 w-auto" />
+                            </div>
+                            <div className="flex items-center gap-2 bg-white rounded-lg p-2 shadow-sm border">
+                                <Image src={paypal} alt="PayPal" width={40} height={24} className="h-6 w-auto" />
+                            </div>
+                            {/* Amazon Pay */}
+                            <div className="flex items-center gap-2 bg-white rounded-lg p-2 shadow-sm border">
+                                <FaAmazonPay className="w-10 h-6 text-[#FF9900]" />
+                            </div>
+                            {/* UPI */}
+                            <div className="flex items-center gap-2 bg-white rounded-lg p-2 shadow-sm border">
+                                <span className="text-[#00BAF2] font-bold text-xs px-2">UPI</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

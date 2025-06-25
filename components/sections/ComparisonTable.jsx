@@ -1,4 +1,4 @@
-import arrow from '@/assets/female_arrow.png'
+import arrow from '@/assets/female_arro.jpeg'
 import Image from 'next/image';
 
 export default function ComparisonTable() {

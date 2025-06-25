@@ -2,10 +2,10 @@ import Image from 'next/image';
 import one from '@/assets/t_one.svg'
 import two from '@/assets/t_two.svg'
 import three from '@/assets/t_three.svg'
-import four from '@/assets/t_four.png'
-import five from '@/assets/hala.png'
-import six from '@/assets/t_six.png'
-import seven from '@/assets/t_seven.png'
+import four from '@/assets/t_four.jpeg'
+import five from '@/assets/hala.jpeg'
+import six from '@/assets/t_six.jpeg'
+import seven from '@/assets/t_seven.jpeg'
 
 export default function AwardsSection() {
   // const awards = [

@@ -7,7 +7,8 @@ import product1 from '@/assets/1.jpg';
 import product2 from '@/assets/2.jpg'; // Add more product images
 import product3 from '@/assets/5.jpg'; // Add more product images
 import product4 from '@/assets/6.jpg'; // Add more product images
-import { Star, Minus, Plus } from 'lucide-react';
+import { Star, Minus, Plus, ShoppingCart, ExternalLink } from 'lucide-react';
+import { FaAmazon } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
 
 export default function Product() {
@@ -49,6 +50,13 @@ export default function Product() {
     const handleAddToCart = () => {
         // You can add cart logic here if needed
         router.push('/checkout');
+    };
+
+    const handleBuyOnAmazon = () => {
+        // Using the centralized Amazon configuration
+        import('@/lib/amazonConfig').then(({ amazonConfig }) => {
+            window.open(amazonConfig.getBuyUrl(), '_blank');
+        });
     };
 
     return (
@@ -139,9 +147,20 @@ export default function Product() {
                                 {/* Add to Cart Button */}
                                 <Button
                                     onClick={handleAddToCart}
-                                    className="w-full bg-[#43c3ff] hover:bg-[#43c3ff]/90 text-white py-3 rounded-lg text-lg mb-6"
+                                    className="w-full bg-[#43c3ff] hover:bg-[#43c3ff]/90 text-white py-3 rounded-lg text-lg mb-4 flex items-center justify-center gap-2"
                                 >
+                                    <ShoppingCart className="w-5 h-5" />
                                     Add to Cart - ₹{(product.price * quantity).toFixed(2)}
+                                </Button>
+
+                                {/* Buy on Amazon Button */}
+                                <Button
+                                    onClick={handleBuyOnAmazon}
+                                    className="w-full bg-gradient-to-r from-[#FF9900] to-[#FF7A00] hover:from-[#FF7A00] hover:to-[#FF5500] text-white py-3 rounded-lg text-lg mb-6 flex items-center justify-center gap-2 transform transition-all duration-300 hover:scale-[1.02]"
+                                >
+                                    <FaAmazon className="w-5 h-5" />
+                                    Buy on Amazon
+                                    <ExternalLink className="w-4 h-4" />
                                 </Button>
                             </div>
 

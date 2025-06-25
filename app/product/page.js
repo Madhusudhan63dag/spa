@@ -8,7 +8,7 @@ import product1 from '../../assets/1.jpg';
 import { Minus, Plus } from 'lucide-react';
 import visa from '../../assets/visa.svg';  // You'll need to add these images
 import mastercard from '../../assets/mastercard.svg';
-import rupay from '../../assets/upi-id.png';
+import rupay from '../../assets/upi-id.jpeg';
 import razorpay from '../../assets/paypal.svg';
 import logo from '../just_logo.png'
 import Product from './product';

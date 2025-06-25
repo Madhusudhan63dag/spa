@@ -5,12 +5,6 @@
       "static/chunks/76.0658bbf2692a5365.js"
     ]
   },
-  "app\\page.js -> locomotive-scroll": {
-    "id": 9123,
-    "files": [
-      "static/chunks/123.d5e644a53f197510.js"
-    ]
-  },
   "node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
     "id": 5203,
     "files": [
